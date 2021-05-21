@@ -33,4 +33,8 @@ public class Rocket implements SpaceShip {
     protected Integer cargoLimit() {
         return this.maxWeight - this.weight;
     }
+
+    public String toString() {
+        return "Rocket: " + String.valueOf(this.currentWeight);
+    }
 }

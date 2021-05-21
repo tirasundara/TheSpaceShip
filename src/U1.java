@@ -3,6 +3,7 @@ public class U1 extends Rocket {
     U1() {
         this.cost = 100;
         this.weight = 10000;
+        this.currentWeight = this.weight;
         this.maxWeight = 18000;
         this.launchExplosionPercentage = 0.05;
         this.landingCrashPercentage = 0.01;
