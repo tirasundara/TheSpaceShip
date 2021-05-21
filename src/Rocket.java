@@ -1,13 +1,10 @@
 public class Rocket implements SpaceShip {
-    private Integer cost;
-    private Integer weight;
-    private Integer maxWeight;
-
-    Rocket(Integer cost, Integer weight, Integer maxWeight) {
-        this.cost = cost;
-        this.weight = weight;
-        this.maxWeight = maxWeight;
-    }
+    protected Integer cost;                         // in million
+    protected Integer weight;                       // in kg
+    protected Integer maxWeight;                    // in kg
+    protected Integer currentWeight;                // in kg
+    protected Double landingCrashPercentage;
+    protected Double launchExplosionPercentage;
 
     @Override
     public boolean land() {
@@ -21,15 +18,19 @@ public class Rocket implements SpaceShip {
 
     @Override
     public boolean canCarry(Item item) {
-        return this.weight + item.getWeight() <= this.maxWeight;
+        return this.currentWeight + item.getWeight() <= this.maxWeight;
     }
 
     @Override
     public void carry(Item item) {
-        setWeight(this.weight + item.getWeight());
+        this.currentWeight += item.getWeight();
     }
 
-    private void setWeight(Integer weight) {
-        this.weight = weight;
+    protected Integer cargoCarried() {
+        return this.currentWeight - this.weight;
+    }
+
+    protected Integer cargoLimit() {
+        return this.maxWeight - this.weight;
     }
 }
