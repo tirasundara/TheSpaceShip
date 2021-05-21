@@ -5,23 +5,19 @@ public class U1 extends Rocket {
         this.weight = 10000;
         this.currentWeight = this.weight;
         this.maxWeight = 18000;
-        this.launchExplosionPercentage = 0.05;
-        this.landingCrashPercentage = 0.01;
+        this.launchExplosionPercentage = 5.0;
+        this.landingCrashPercentage = 1.0;
     }
 
     @Override
     public boolean launch() {
-        Integer random = (int) Math.random() * 100 + 1;
-        Double explosionChance = this.launchExplosionPercentage * (this.cargoCarried() / this.cargoLimit());
-
-        return explosionChance <= random;
+        double explosionChance = this.launchExplosionPercentage * this.cargoCarriedToCargoLimit();
+        return explosionChance <= this.random();
     }
 
     @Override
     public boolean land() {
-        Integer random = (int) Math.random() * 100 + 1;
-        Double explosionChance = this.landingCrashPercentage * (this.cargoCarried() / this.cargoLimit());
-
-        return explosionChance <= random;
+        double explosionChance = this.landingCrashPercentage * this.cargoCarriedToCargoLimit();
+        return explosionChance <= this.random();
     }
 }

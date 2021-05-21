@@ -21,13 +21,11 @@ public class Simulation {
             items.add(item);
         }
 
-        System.out.println("items: " + items);
-
         return items;
     }
 
     public ArrayList<Rocket> loadU1(ArrayList<Item> items) {
-        ArrayList<Rocket> u1Rockets = new ArrayList<Rocket>();
+        ArrayList<Rocket> u1Rockets = new ArrayList<>();
         U1 u1 = new U1();
 
         for (Item item : items) {
@@ -38,13 +36,11 @@ public class Simulation {
             u1.carry(item);
         }
 
-        System.out.println("U1 rockets: " + u1Rockets);
-
         return u1Rockets;
     }
 
     public ArrayList<Rocket> loadU2(ArrayList<Item> items) {
-        ArrayList<Rocket> u2Rockets = new ArrayList<Rocket>();
+        ArrayList<Rocket> u2Rockets = new ArrayList<>();
         U2 u2 = new U2();
 
         for (Item item : items) {
@@ -55,14 +51,12 @@ public class Simulation {
             u2.carry(item);
         }
 
-        System.out.println("U2 rockets: " + u2Rockets);
-
         return u2Rockets;
     }
 
-    public Integer runSimulation(ArrayList<Rocket> rockets) {
-        Integer totalBudget = 0;
-        Integer trial = 1;
+    public int runSimulation(ArrayList<Rocket> rockets) {
+        int totalBudget = 0;
+        int trial = 1;
 
         for (Rocket rocket : rockets) {
             while(!rocket.launch()) {

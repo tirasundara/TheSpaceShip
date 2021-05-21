@@ -3,6 +3,7 @@ import java.util.InvalidPropertiesFormatException;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Mission to Mars Simulation\n");
         Simulation simulation = new Simulation();
 
         try {

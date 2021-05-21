@@ -1,10 +1,10 @@
 public class Rocket implements SpaceShip {
-    protected Integer cost;                         // in million
-    protected Integer weight;                       // in kg
-    protected Integer maxWeight;                    // in kg
-    protected Integer currentWeight;                // in kg
-    protected Double landingCrashPercentage;
-    protected Double launchExplosionPercentage;
+    protected int cost;                         // in million
+    protected int weight;                       // in kg
+    protected int maxWeight;                    // in kg
+    protected int currentWeight;                // in kg
+    protected double landingCrashPercentage;
+    protected double launchExplosionPercentage;
 
     @Override
     public boolean land() {
@@ -26,15 +26,19 @@ public class Rocket implements SpaceShip {
         this.currentWeight += item.getWeight();
     }
 
-    protected Integer cargoCarried() {
+    protected int cargoCarried() {
         return this.currentWeight - this.weight;
     }
 
-    protected Integer cargoLimit() {
+    protected int cargoLimit() {
         return this.maxWeight - this.weight;
     }
 
-    public String toString() {
-        return "Rocket: " + String.valueOf(this.currentWeight);
+    protected double cargoCarriedToCargoLimit() {
+        return this.cargoCarried() / (double) this.cargoLimit();
+    }
+
+    protected int random() {
+        return (int) (Math.random() * 10) + 1;
     }
 }

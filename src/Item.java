@@ -1,21 +1,13 @@
 public class Item {
     private String name;
-    private Integer weight;
+    private int weight;
 
-    Item(String name, Integer weight) {
+    Item(String name, int weight) {
         this.name = name;
         this.weight = weight;
     }
 
-    public Integer getWeight() {
+    public int getWeight() {
         return this.weight;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String toString() {
-        return this.name;
     }
 }
